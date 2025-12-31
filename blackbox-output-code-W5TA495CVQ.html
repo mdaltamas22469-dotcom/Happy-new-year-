@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year Booklet</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: linear-gradient(to bottom, #ffecd2, #fcb69f); text-align: center; padding: 20px; }
+        .booklet { max-width: 400px; margin: auto; border: 2px solid #333; padding: 20px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+        .page { display: none; padding: 20px; }
+        .page.active { display: block; }
+        button { background: #4CAF50; color: white; border: none; padding: 10px 20px; margin: 10px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #45a049; }
+        .cover { background: url('https://via.placeholder.com/300x400/ff0000/ffffff?text=Happy+New+Year') no-repeat center; background-size: cover; height: 400px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="booklet">
+        <div class="page active cover">
+            🎉 नया साल मुबारक हो 2025! 🎉<br>
+            <em>"ओपन" पर क्लिक करें और अपना सफर शुरू करें!</em><br>
+            <button onclick="nextPage()">ओपन</button>
+        </div>
+        
+        <div class="page">
+            <h2>पेज 1: 2024 को अलविदा</h2>
+            <p>जैसे सूरज डूबता है, वैसे ही पुराना साल खत्म हो रहा है। चुनौतियों को पार किया, यादें बनाईं, सबक सीखे—अब नया पेज पलटें नए शुरूआत के लिए!</p>
+            <img src="https://via.placeholder.com/200x150/ffa500/000000?text=Sunset" alt="सूरज डूबना" style="width:200px;"><br>
+            <button onclick="prevPage()">पीछे</button> <button onclick="nextPage()">आगे</button>
+        </div>
+        
+        <div class="page">
+            <h2>पेज 2: आपके लिए शुभकामनाएं</h2>
+            <p>खुशी, सेहत, प्यार और सपनों को सच करने के लिए चीयर्स! आपके दिन उज्ज्वल हों और रातें शांतिपूर्ण।</p>
+            <img src="https://via.placeholder.com/200x150/00ff00/000000?text=Stars" alt="तारे" style="width:200px;"><br>
+            <button onclick="prevPage()">पीछे</button> <button onclick="nextPage()">आगे</button>
+        </div>
+        
+        <div class="page">
+            <h2>पेज 3: मजेदार रेजोल्यूशन</h2>
+            <p>ज़्यादा मुस्कुराएं, नए जगहों पर जाएं, नए खाना ट्राई करें और सपनों का पीछा करें! 2025 को एपिक बनाएं!</p>
+            <img src="https://via.placeholder.com/200x150/0000ff/ffffff?text=Adventure" alt="एडवेंचर" style="width:200px;"><br>
+            <button onclick="prevPage()">पीछे</button> <button onclick="nextPage()">आगे</button>
+        </div>
+        
+        <div class="page">
+            <h2>पेज 4: भविष्य के लिए चीयर्स</h2>
+            <p>आपके लिए चीयर्स! भाग्य आपके सभी कामों पर मुस्कुराए। नया साल मुबारक—इसे यादगार बनाएं!</p>
+            <img src="https://via.placeholder.com/200x150/ff69b4/000000?text=Cheers" alt="चीयर्स" style="width:200px;"><br>
+            <button onclick="prevPage()">पीछे</button> <button onclick="closeBook()">बंद करें</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll('.page');
+        
+        function nextPage() {
+            pages[currentPage].classList.remove('active');
+            currentPage = (currentPage + 1) % pages.length;
+            pages[currentPage].classList.add('active');
+        }
+        
+        function prevPage() {
+            pages[currentPage].classList.remove('active');
+            currentPage = (currentPage - 1 + pages.length) % pages.length;
+            pages[currentPage].classList.add('active');
+        }
+        
+        function closeBook() {
+            pages[currentPage].classList.remove('active');
+            currentPage = 0;
+            pages[0].classList.add('active');
+        }
+    </script>
+</body>
+</html>
